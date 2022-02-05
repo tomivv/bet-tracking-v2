@@ -36,3 +36,21 @@
   font-size: 1rem;
   padding: 0.5rem;
 }
+
+.btn {
+  width: 200px;
+  height: 40px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Roboto', -apple-system, sans-serif;
+  font-size: 1rem;
+}
+
+.btn_secondary {
+  background-color: #D00000;
+}
+
+.btn_primary {
+  background-color: #23CE6B;
+}

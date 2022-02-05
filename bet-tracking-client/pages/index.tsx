@@ -2,8 +2,12 @@ import type { NextPage } from 'next'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
+  function handleForm(e: any) {
+    e.preventDefault();
+  }
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onSubmit={handleForm}>
       <h1>Lisää veto</h1>
       <form className={styles.form}>
         <div className={styles.form_inline_group}>
@@ -45,6 +49,10 @@ const Home: NextPage = () => {
             <label htmlFor="paiva">Päiväys</label>
             <input type="date" name="paiva" id="paiva" />
           </div>
+        </div>
+        <div className={styles.form_inline_group}>
+          <button className={`${styles.btn} ${styles.btn_primary}`}>Lisää</button>
+          <button className={`${styles.btn} ${styles.btn_secondary}`}>Peruuta</button>
         </div>
       </form>
     </div>
