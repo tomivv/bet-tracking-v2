@@ -1,9 +1,12 @@
 import type { NextPage } from 'next'
+import React from 'react';
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
-  function handleForm(e: any) {
+  function handleForm(e: React.SyntheticEvent) {
     e.preventDefault();
+    console.log(e);
+    
   }
 
   return (
