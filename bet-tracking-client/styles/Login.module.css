@@ -1,0 +1,49 @@
+.container {
+    width: 80%;
+    margin-inline: auto;
+}
+
+.text_center {
+    text-align: center;
+}
+
+.login_form {
+    width: 60%;
+    margin: auto;
+}
+
+.form_item label, .form_item input {
+    display: block;
+}
+  
+.form_item label {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+  
+.form_item input {
+    height: 2.5rem;
+    width: 22rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-inline: auto;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    width: 200px;
+    height: 40px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Roboto', -apple-system, sans-serif;
+    font-size: 1rem;
+    margin-inline: auto;
+}
+
+.btn_primary {
+    background-color: #23CE6B;
+}
