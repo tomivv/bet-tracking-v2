@@ -1,10 +1,24 @@
 import type { NextPage } from "next";
+import { signIn } from 'next-auth/react';
 import React from "react";
 import styles from "../styles/Login.module.css";
+import { useRouter } from 'next/router';
 
 const Login: NextPage = () => {
-  function handleLogin(e: React.SyntheticEvent) {
-    e.preventDefault();
+  const router = useRouter();
+  async function handleLogin(e: React.SyntheticEvent) {
+    e.preventDefault();    
+    const formData: any = e.target
+    const res: any = await signIn('credentials', {
+      redirect: false,
+      username: formData[0].value,
+      password: formData[1].value,
+      callbackUrl: `${window.location.origin}`,
+    });    
+    if(res.status !== 200) {
+      // set error message here
+    }
+    if (res.url) router.push(res.url);
   }
   return (
     <div className={`${styles.container}`}>

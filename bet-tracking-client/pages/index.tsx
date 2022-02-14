@@ -1,12 +1,25 @@
 import type { NextPage } from 'next'
+import { signIn, useSession } from 'next-auth/react';
 import React from 'react';
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
+
+  const { data: session } = useSession();
+
+  if (!session) {
+    return (
+      <>
+        Not signed in <br />
+        <button onClick={() => signIn()}>Sign in</button>
+      </>
+    )
+  }
+
+
   function handleForm(e: React.SyntheticEvent) {
     e.preventDefault();
     console.log(e);
-    
   }
 
   return (
