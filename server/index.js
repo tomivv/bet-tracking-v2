@@ -3,6 +3,10 @@ const morgan = require("morgan");
 const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
+const Knex = require("knex");
+const knexConfig = require("./knexfile");
+const { Model } = require("objection");
+const { login } = require("./src/api/login");
 
 const app = express();
 
@@ -13,9 +17,15 @@ app.use(morgan(":method :url :status :response-time ms - :res[content-length]", 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const knex = Knex(knexConfig.development);
 
-app.get('/', (req, res) => {
-  res.send("Hello, Bettor!");
-});
+Model.knex(knex);
+
+
+// app.get('/', (req, res) => {
+//   res.send("Hello, Bettor!");
+// });
+
+app.post("/", login);
 
 app.listen(3001, () => console.log(`Running @ http://localhost:3001`));
