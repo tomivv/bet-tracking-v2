@@ -4,7 +4,6 @@ import React from 'react';
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
-
   const { data: session } = useSession();
 
   if (!session) {
@@ -15,7 +14,6 @@ const Home: NextPage = () => {
       </>
     )
   }
-
 
   function handleForm(e: React.SyntheticEvent) {
     e.preventDefault();

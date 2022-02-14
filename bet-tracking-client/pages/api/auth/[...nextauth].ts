@@ -18,10 +18,10 @@ export default NextAuth({
           },
           body: JSON.stringify(credentials)
         })
-          .then(result => result.json())
-          .then(data => {
-            return data;
-          });
+        .then(result => result.json())
+        .then(data => {
+          return data;
+        });
           
         if (user.data.statusCode === 200) {
           return user;
