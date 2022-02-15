@@ -8,7 +8,7 @@ const knexConfig = require("./knexfile");
 const { Model } = require("objection");
 const { login } = require("./src/api/login");
 const { addBet } = require("./src/api/bets");
-
+const { verifyToken } = require("./src/middleware/auth");
 
 const app = express();
 
@@ -29,6 +29,6 @@ Model.knex(knex);
 // });
 
 app.post("/", login);
-app.post("/api/bets", addBet);
+app.post("/api/bets", verifyToken,addBet);
 
 app.listen(3001, () => console.log(`Running @ http://localhost:3001`));
