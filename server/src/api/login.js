@@ -12,7 +12,7 @@ async function login(req, res) {
     return res.status(401).json({
       data: {
         statusCode: 401,
-        message: "Username or password are incorrect"
+        message: "Invalid username or password"
       }
     });
   };
@@ -40,7 +40,7 @@ async function login(req, res) {
     return res.status(401).json({
       data: {
         statusCode: 401,
-        message: "Username or password are incorrect"
+        message: "Invalid username or password"
       }
     });
   }
