@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 
 const Login: NextPage = () => {
   const router = useRouter();
+
   async function handleLogin(e: React.SyntheticEvent) {
     e.preventDefault();    
     const formData: any = e.target
@@ -20,6 +21,7 @@ const Login: NextPage = () => {
     }
     if (res.url) router.push(res.url);
   }
+
   return (
     <div className={`${styles.container}`}>
       <h1 className={`${styles.text_center}`}>Login page</h1>
