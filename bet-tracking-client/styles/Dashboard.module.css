@@ -1,0 +1,10 @@
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 5px;
+}
+
+.item h2 {
+    font-size: 24px;
+    font-family: 'Roboto', -apple-system, sans-serif;
+}
