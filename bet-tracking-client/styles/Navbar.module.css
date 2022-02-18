@@ -1,0 +1,29 @@
+.nav_vertical {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 6rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: solid;
+    border-color: #747572;
+}
+
+.nav_middle {
+    justify-content: center;
+}
+
+.nav_vertical ul li svg {
+    display: block;
+    margin: auto;
+}
+
+.nav_item {
+    margin-block: 1rem;
+}
+
+.nav_logout {
+    cursor: pointer;
+}
