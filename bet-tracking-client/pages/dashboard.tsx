@@ -2,6 +2,8 @@ import type { NextPage } from 'next'
 import { getSession, signIn, signOut, useSession } from 'next-auth/react';
 import React from 'react';
 import BetDisplay from '../components/BetDisplay';
+import styles from "../styles/Dashboard.module.css";
+
 
 interface Props {
   statusCode: number,
@@ -32,11 +34,14 @@ const Dashboard: NextPage<Props> = ({ statusCode, betsToday, betsWeek, betsMonth
   if (statusCode !== 200) return <div><h1>{statusCode}</h1></div>
   
   return (
-    <div className="container">
-      <BetDisplay title="Päivä" data={betsToday} />
-      <BetDisplay title="Viikko" data={betsWeek} />
-      <BetDisplay title="Kuukausi" data={betsMonth} />
-      <BetDisplay title="Vuosi" data={betsYear} />
+    <div className={styles.container}>
+      <h1>Veto tilastot</h1>
+      <div className={styles.cards}>
+        <BetDisplay title="Päivä" data={betsToday} />
+        <BetDisplay title="Viikko" data={betsWeek} />
+        <BetDisplay title="Kuukausi" data={betsMonth} />
+        <BetDisplay title="Vuosi" data={betsYear} />
+      </div>
     </div>
   );
 }
