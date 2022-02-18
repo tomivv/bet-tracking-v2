@@ -9,3 +9,7 @@ Coming soon tm.
 ## Usage
 
 Coming soon tm.
+
+## Known bugs
+
+User is still authenticated when jwt token is expired.
