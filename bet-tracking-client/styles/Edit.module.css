@@ -1,0 +1,20 @@
+.table {
+    width: 90%;
+    margin: auto;
+    margin-top: 5rem;
+    border-collapse: collapse;
+}
+
+.table th {
+    text-align: center;
+    background-color: #23CE6B;
+}
+
+.table td {
+    padding-left: 0.5rem;
+    height: 2rem;
+}
+
+.table, .table th, .table td {
+    border: 1px solid #747572;
+}
