@@ -5,8 +5,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Roboto', -apple-system, sans-serif;
-  background-color: #59656F;
-  color: #FFF;
+  background-color: #ECF0F1;
+  color: black;
 
 }
 
@@ -22,4 +22,10 @@ a {
 .container {
   width: 80%;
   margin: auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-inline: 0;
 }
