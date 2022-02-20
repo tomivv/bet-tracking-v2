@@ -11,14 +11,14 @@ async function addBet(req, res) {
   const bet = await Bet.query()
     .insert({
       user_id: user[0].id,
-      stake: req.body.panos,
-      odds: req.body.kerroin,
-      selection: req.body.lyonti,
-      type: req.body.tapa,
-      event: req.body.kohde,
-      sport: req.body.laji,
-      win: req.body.voitto,
-      date: req.body.paivays
+      stake: req.body.stake,
+      odds: req.body.odds,
+      selection: req.body.selection,
+      type: req.body.type,
+      event: req.body.event,
+      sport: req.body.sport,
+      win: req.body.win,
+      date: req.body.date
     });
 
   if(bet.length < 1 || bet.length > 1) {
