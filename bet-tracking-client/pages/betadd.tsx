@@ -3,6 +3,7 @@ import { signIn, useSession } from 'next-auth/react';
 import React from 'react';
 import styles from '../styles/Home.module.css'
 import { Form, Formik } from 'formik';
+import AuthError from '../components/AuthError';
 
 interface betForm {
   stake: number,
@@ -18,14 +19,7 @@ interface betForm {
 const Betadd: NextPage = () => {
   const { data: session } = useSession();
   
-  if (!session) {
-    return (
-      <>
-        <h1>Not signed in</h1>
-        <button onClick={() => signIn()}>Sign in</button>
-      </>
-    )
-  }
+  if (!session) return <AuthError /> 
 
   const initialValues: betForm = {
     stake: 0,

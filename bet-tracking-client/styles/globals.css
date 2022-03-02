@@ -37,3 +37,24 @@ ul {
 .flex {
   display: flex;
 }
+
+.title {
+  text-align: center;
+  font-size: 36px;
+}
+
+.btn {
+  width: 200px;
+  height: 40px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Roboto', -apple-system, sans-serif;
+  font-size: 1rem;
+  margin-inline: auto;
+  display: block;
+}
+
+.btn_primary {
+  background-color: #23CE6B;
+}

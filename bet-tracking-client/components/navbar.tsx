@@ -2,9 +2,12 @@ import React from "react";
 import styles from "../styles/Navbar.module.css";
 import { Icon } from '@iconify/react';
 import Link from "next/link";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 export default function Navbar() {
+  const { data: session } = useSession();
+
+  if (!session) return <></>
 
   function handleLogout(e: React.SyntheticEvent) {
     e.preventDefault();
@@ -33,6 +36,13 @@ export default function Navbar() {
             <Link href="/betadd">
               <a>
                 <Icon icon="carbon:add" color="#747572" height="32" />
+              </a>
+            </Link>
+          </li>
+          <li className={styles.nav_item}>
+            <Link href="/edit">
+              <a>
+                <Icon icon="carbon:edit" color="#747572" height="32" />
               </a>
             </Link>
           </li>

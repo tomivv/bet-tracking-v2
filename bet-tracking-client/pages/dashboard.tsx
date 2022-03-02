@@ -1,6 +1,7 @@
-import type { NextPage } from 'next'
-import { getSession, signIn, signOut, useSession } from 'next-auth/react';
+import type { NextPage, NextPageContext } from 'next'
+import { getSession, signIn, useSession } from 'next-auth/react';
 import React from 'react';
+import AuthError from '../components/AuthError';
 import BetDisplay from '../components/BetDisplay';
 import styles from "../styles/Dashboard.module.css";
 
@@ -23,14 +24,7 @@ interface bets {
 const Dashboard: NextPage<Props> = ({ statusCode, betsToday, betsWeek, betsMonth, betsYear }) => {
   const { data: session } = useSession();
 
-  if (!session || statusCode === 401) {
-    return (
-      <>
-        Not signed in <br />
-        <button onClick={() => signIn()}>Sign in</button>
-      </>
-    )
-  }
+  if (!session || statusCode === 401) return <AuthError /> 
   if (statusCode !== 200) return <div><h1>{statusCode}</h1></div>
   
   return (
@@ -53,7 +47,7 @@ interface bet {
   date: string
 }
 
-Dashboard.getInitialProps = async ({ req }) => {
+export async function getServerSideProps({ req }: NextPageContext) {
   const session = await getSession({ req });
   let api_key = "";
   if(session !== null) {
@@ -104,12 +98,14 @@ Dashboard.getInitialProps = async ({ req }) => {
 
   if (response.data.statusCode === 401) {
     return {
-      statusCode: response.data.statusCode,
-      message: response.data.message,
-      betsToday: betsToday,
-      betsWeek: betsWeek,
-      betsMonth: betsMonth,
-      betsYear: betsYear
+      props: {
+        statusCode: response.data.statusCode,
+        message: response.data.message,
+        betsToday: betsToday,
+        betsWeek: betsWeek,
+        betsMonth: betsMonth,
+        betsYear: betsYear
+      }
     }
   }
   
@@ -142,11 +138,13 @@ Dashboard.getInitialProps = async ({ req }) => {
   });
 
   return {
-    statusCode: response.data.statusCode,
-    betsToday: betsToday,
-    betsWeek: betsWeek,
-    betsMonth: betsMonth,
-    betsYear: betsYear
+    props: {
+      statusCode: response.data.statusCode,
+      betsToday: betsToday,
+      betsWeek: betsWeek,
+      betsMonth: betsMonth,
+      betsYear: betsYear
+    }
   }
 }
 
