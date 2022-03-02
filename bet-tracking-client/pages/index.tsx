@@ -1,23 +1,15 @@
 import type { NextPage } from 'next'
-import { signIn, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import React from 'react';
-import Navbar from '../components/navbar';
-import styles from '../styles/Home.module.css'
+import AuthError from '../components/AuthError';
 
 const Home: NextPage = () => {
   const { data: session } = useSession();
 
-  if (!session) {
-    return (
-      <>
-        Not signed in <br />
-        <button onClick={() => signIn()}>Sign in</button>
-      </>
-    )
-  }
+  if (!session) return <AuthError /> 
 
   return (
-    <Navbar />
+    <></>
   )
 }
 

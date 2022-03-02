@@ -35,7 +35,7 @@ const Login: NextPage = () => {
           <input type="password" name="password" id="password" />
         </div>
         <div className={styles.text_center}>
-          <button className={`${styles.btn} ${styles.btn_primary}`}>Login</button>
+          <button className={`btn btn_primary`}>Login</button>
         </div>
       </form>
     </div>
